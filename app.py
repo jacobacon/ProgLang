@@ -6,3 +6,5 @@ sourcefile = open("language.run")
 
 print p.languagelexer(sourcefile.read())
 print p.languagelexer(sourcefile.read())
+
+sourcefile.close()
