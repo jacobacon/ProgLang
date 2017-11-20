@@ -14,7 +14,7 @@ class Lexer:
 
         # Regex patterns for handling words
         self.patterns = [
-            (re.compile(r'^[^A-Za-z0-9._%]+$'), self.SKIP),
+            (re.compile(r'^[^A-Za-z0-9._]+.*$'), self.SKIP),
             (re.compile(r'%%[^\n]*'), self.COMMENT),
             (re.compile(r'^[A-Za-z0-9._]+$'), self.VALID)
         ]
@@ -35,7 +35,6 @@ class Lexer:
 
                 match = pattern.match(word)
                 if match:
-                    print tag + word
                     if (tag == self.SKIP) and (comment == False):
                         print 'Syntax Error: Invalid Token + ' + word
                         sys.exit(1)
@@ -47,5 +46,5 @@ class Lexer:
                         comment = False
                         continue
                     elif (tag == self.VALID) and (comment == False):
-                        validtokens.append(word)
+                        validtokens.append(match.group(0))
         return validtokens
