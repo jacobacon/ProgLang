@@ -1,8 +1,10 @@
 from lexer import Lexer
+from stack import Stack
 import sys
 import os.path
 
 lexer = Lexer()
+stack = Stack()
 
 if len(sys.argv) > 1:
     if os.path.exists(sys.argv[1]):
@@ -14,6 +16,18 @@ else:
     sys.exit(1)
 
 
-print lexer.languagelexer(sourcefile.read())
-
+words = lexer.languagelexer(sourcefile.read())
 sourcefile.close()
+
+print words
+
+for word in words:
+    stack.push(word)
+
+print stack.isempty()
+print stack.pop()
+print stack.pop()
+print stack.pop()
+print stack.pop()
+
+
