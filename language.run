@@ -1,1 +1,6 @@
-this is a test of file reading
+this is a test of file reading ADD 1 2 SUB 3.3
+%% Comments work across multiple lines I
+Think so you Should be
+able to make useful comments %%
+going back to code
+!This should crash

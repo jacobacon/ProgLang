@@ -14,6 +14,6 @@ else:
     sys.exit(1)
 
 
-#print lexer.languagelexer(sourcefile.read())
+print lexer.languagelexer(sourcefile.read())
 
 sourcefile.close()
