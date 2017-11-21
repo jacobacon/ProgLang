@@ -1,5 +1,6 @@
 from lexer import Lexer
 from stack import Stack
+import dictionary
 import sys
 import os.path
 
