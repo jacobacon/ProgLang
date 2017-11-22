@@ -16,8 +16,8 @@ def return_stack():
 def add(): #add
     # Add two values from the stack
     assert not stack.isempty(), "Cannot mix the stack... Stack is empty!"
-    val1 = stack.pop()
-    val2 = stack.pop()
+    val1 = float(stack.pop())
+    val2 = float(stack.pop())
     stack.push(val1 + val2)
     return
 
@@ -37,7 +37,7 @@ def popAll(): #popall
         print(stack.pop())
 
 
-def print(): #print
+def print_stack(): #print
     assert not stack.isempty(), "Cannot serve the stack... Stack is empty!"
     print(stack.pop())
 
@@ -51,27 +51,27 @@ def length(): #length
 
 def multiply(): #multiplication
     assert not stack.isempty(), "Cannot cure the stack... Stack is empty!"
-    val1 = stack.pop()
-    val2 = stack.pop()
-    print(val1 * val2)
+    val1 = float(stack.pop())
+    val2 = float(stack.pop())
+    stack.push(val1 * val2)
 
 def divide(): #division
     assert not stack.isempty(), "Cannot dissolve the stack... Stack is empty!"
-    val1 = stack.pop()
-    val2 = stack.pop()
-    print(val1 / val2)
+    val1 = float(stack.pop())
+    val2 = float(stack.pop())
+    stack.push(val1 / val2)
 
 def floorDivide(): #floor division
     assert not stack.isempty(), "Cannot dust the stack... Stack is empty!"
-    val1 = stack.pop()
-    val2 = stack.pop()
-    print(val1 // val2)
+    val1 = float(stack.pop())
+    val2 = float(stack.pop())
+    stack.push(val1 // val2)
 
 def getRemainder(): #getRemainder
     assert not stack.isempty(), "Cannot grill the stack... Stack is empty!"
-    val1 = stack.pop()
-    val2 = stack.pop()
-    print(val1 % val2)
+    val1 = float(stack.pop())
+    val2 = float(stack.pop())
+    stack.push(val1 % val2)
 
 # Rename to something more appropriate to check if a value is in the dictionary
 def check_dictionary(argument):
@@ -79,14 +79,14 @@ def check_dictionary(argument):
     dictionary = {
         'mix': add,
         'skim': subtract,
-        'serve': print,
+        'serve': print_stack,
         'popcorn': popAll,
         'clarify': peek,
         'measure': length,
-        'dust' : divide,
-        'grill' : floorDivide,
-        'dissolve' : getRemainder(),
-        'cure' : multiply(),
+        'dust': divide,
+        'grill': floorDivide,
+        'dissolve': getRemainder,
+        'cure': multiply,
 
     }
     # Get the function from switcher dictionary
