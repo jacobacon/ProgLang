@@ -25,6 +25,6 @@ parser.add_to_stack(1)
 
 parser.check_dictionary('subtract')
 
-print parser.return_stack()
+print(parser.return_stack())
 sys.exit(0)
 
