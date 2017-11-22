@@ -36,10 +36,10 @@ class Lexer:
                 match = pattern.match(word)
                 if match:
                     if (tag == self.SKIP) and (comment == False):
-                        print 'Syntax Error: Invalid Token + ' + word
+                        print('Syntax Error: Invalid Token + ' + word)
                         sys.exit(1)
                     if (tag == self.COMMENT) and (comment == False):
-                        print 'Comment Found'
+                        print('Comment Found')
                         comment = True
                         continue
                     elif (tag == self.COMMENT) and (comment == True):
