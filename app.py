@@ -19,12 +19,5 @@ tokens = lexer.languagelexer(sourcefile.read())
 sourcefile.close()
 
 parser.parser(tokens)
-
-parser.add_to_stack(5)
-parser.add_to_stack(1)
-
-parser.check_dictionary('subtract')
-
-print parser.return_stack()
 sys.exit(0)
 

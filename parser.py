@@ -1,5 +1,6 @@
 # Rename methods to our built in methods (Mix, Cook, Brun, Etc.)
 from stack import Stack
+import re
 
 stack = Stack()
 
@@ -15,16 +16,18 @@ def return_stack():
 def mix():
     # Add two values from the stack
     assert not stack.isempty()
-    val1 = stack.pop()
-    val2 = stack.pop()
+    val1 = float(stack.pop())
+    val2 = float(stack.pop())
     stack.push(val1 + val2)
     return
 
 
 def subtract():
     assert not stack.isempty()
-    val1 = stack.pop()
-    val2 = stack.pop()
+
+    val1 = float(stack.pop())
+    val2 = float(stack.pop())
+
     stack.push(val2 - val1)
     return
 
@@ -51,6 +54,17 @@ def check_dictionary(argument):
 
 def parser(tokens):
 
+    number = re.compile(r'^[0-9]*$')
+    string = re.compile(r'^[a-zA-Z]*$')
+
+    for token in tokens:
+
+        if number.match(token):
+            stack.push(token)
+        elif string.match(token):
+            check_dictionary(token)
+        else:
+            print('')
     return
 
 
