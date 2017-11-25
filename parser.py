@@ -73,7 +73,8 @@ def getRemainder(): #getRemainder
     val2 = float(stack.pop())
     stack.push(val1 % val2)
 
-# Rename to something more appropriate to check if a value is in the dictionary
+
+# Check if the token is in the dictionary.
 def check_dictionary(argument):
 
     dictionary = {
@@ -90,8 +91,8 @@ def check_dictionary(argument):
 
     }
     # Get the function from switcher dictionary
-    # The Lambda will return the string "nothing" if the value is not in the dictionary
-    func = dictionary.get(argument, lambda: "nothing")
+    # The Lambda will return -1 if the value is not in the dictionary
+    func = dictionary.get(argument, lambda: -1)
     # Execute the function
     return func()
 
@@ -106,9 +107,9 @@ def parser(tokens):
         if number.match(token):
             stack.push(token)
         elif string.match(token):
-            check_dictionary(token)
-        else:
-            print('')
+            value = check_dictionary(token)
+            if value:
+                raise ValueError("Invalid Token")
     return
 
 
