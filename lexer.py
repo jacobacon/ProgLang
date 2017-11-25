@@ -11,11 +11,12 @@ class Lexer:
         self.SKIP = 'SKIP'
         self.VALID = 'VALID'
         self.COMMENT = 'COMMENT'
+        self.VARIABLE = 'VARIABLE'
 
         # Regex patterns for handling words
         self.patterns = [
-            (re.compile(r'^[^A-Za-z0-9._]+.*$'), self.SKIP),
             (re.compile(r'%%[^\n]*'), self.COMMENT),
+            (re.compile(r'^[^A-Za-z0-9._%]+.*$'), self.SKIP),
             (re.compile(r'^[A-Za-z0-9._]+$'), self.VALID)
         ]
         return
@@ -33,13 +34,13 @@ class Lexer:
             for regex in self.patterns:
                 pattern, tag = regex
 
+
                 match = pattern.match(word)
                 if match:
                     if (tag == self.SKIP) and (comment == False):
-                        print('Syntax Error: Invalid Token + ' + word)
+                        raise ValueError('Syntax Error: Invalid Token + ' + word)
                         sys.exit(1)
                     if (tag == self.COMMENT) and (comment == False):
-                        print('Comment Found')
                         comment = True
                         continue
                     elif (tag == self.COMMENT) and (comment == True):
