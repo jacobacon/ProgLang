@@ -1,10 +1,9 @@
-import sys
 import re
 
 
 class Lexer:
 
-    #Initial values in the class
+    # Initial values in the class
     def __init__(self):
 
         # Tokens for handling words
@@ -16,7 +15,8 @@ class Lexer:
         # Regex patterns for handling words
         self.patterns = [
             (re.compile(r'%%[^\n]*'), self.COMMENT),
-            (re.compile(r'^[^A-Za-z0-9._%]+.*$'), self.SKIP),
+            (re.compile(r'^[^A-Za-z0-9._%$]+.*$'), self.SKIP),
+            (re.compile(r'^\$[A-Za-z0-9._]+$'), self.VARIABLE),
             (re.compile(r'^[A-Za-z0-9._]+$'), self.VALID)
         ]
         return
@@ -34,18 +34,18 @@ class Lexer:
             for regex in self.patterns:
                 pattern, tag = regex
 
-
                 match = pattern.match(word)
                 if match:
                     if (tag == self.SKIP) and (comment == False):
-                        raise ValueError('Syntax Error: Invalid Token + ' + word)
-                        sys.exit(1)
+                        raise RuntimeError('Syntax Error: Invalid Token + ' + word)
                     if (tag == self.COMMENT) and (comment == False):
                         comment = True
                         continue
                     elif (tag == self.COMMENT) and (comment == True):
                         comment = False
                         continue
+                    elif (tag == self.VARIABLE) and (comment == False):
+                        validtokens.append(match.group(0))
                     elif (tag == self.VALID) and (comment == False):
                         validtokens.append(match.group(0))
         return validtokens

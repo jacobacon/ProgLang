@@ -1,1 +1,39 @@
-5 4 subtract 2 mix serve
+%% Valid Words are:
+
+        'mix': add two values from the stack.
+        'skim': subtract two values from the stack.
+        'serve': pop and print the  top of the stack.
+        'popcorn': pop and print all items from the stack. Useful for debugging.
+        'clarify': peek the top of the stack.
+        'measure': print the length of the stack.
+        'dust': divide two values from the stack.
+        'grill': floor divide two values from the stack
+        'dissolve': get remainder of two values from the stack.
+        'cure': multiply two values from the stack.
+        'pack': store the value of a variable
+        'shop': get the value of a variable onto the stack
+        'trash': delete the variable
+
+This is an example of a comment. Comments start with two percent signs and end with two percent signs                                %%
+
+
+
+
+
+$var1 500 pack
+$var2 200 pack
+
+$var1 100 pack
+
+$var1 shop $var2 shop mix serve
+
+1 5 7 9 popcorn
+
+
+$hello 24 24 mix pack
+
+$hello shop serve
+
+$input order pack
+
+$input shop serve
