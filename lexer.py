@@ -2,7 +2,6 @@ import re
 
 
 class Lexer:
-
     # Initial values in the class
     def __init__(self):
 

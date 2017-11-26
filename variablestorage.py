@@ -1,7 +1,5 @@
-
 class Variables:
     def __init__(self):
-
         self.variables = {}
         return
 
@@ -24,5 +22,3 @@ class Variables:
 
     def print_vars(self):
         print self.variables
-
-

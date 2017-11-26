@@ -12,8 +12,6 @@ if len(sys.argv) > 1:
         raise StandardError("Usage Error: The SourceFile Doesn't Exist.")
 else:
     raise StandardError('Usage Error: You Must Provide a Valid Source File to Run.')
-    sys.exit(1)
-
 
 tokens = lexer.languagelexer(sourcefile.read())
 sourcefile.close()
@@ -21,4 +19,3 @@ sourcefile.close()
 parser.parser(tokens)
 
 sys.exit(0)
-

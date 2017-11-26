@@ -14,7 +14,7 @@ def return_stack():
     return stack.stack
 
 
-def add(): #Mix
+def add():  # Mix
     # Add two values from the stack
     assert not stack.isempty(), "Cannot mix the stack... Stack is empty!"
     val1 = float(stack.pop())
@@ -23,7 +23,7 @@ def add(): #Mix
     return
 
 
-def subtract(): #Skim
+def subtract():  # Skim
     assert not stack.isempty(), "Cannot skim the stack... Stack is empty!"
 
     val1 = float(stack.pop())
@@ -32,7 +32,8 @@ def subtract(): #Skim
     stack.push(val2 - val1)
     return
 
-def popAll(): #Popcorn
+
+def popAll():  # Popcorn
     assert not stack.isempty(), "Cannot make popcorn... Stack is empty!"
     while stack.size() != 0:
         print stack.pop()
@@ -48,11 +49,11 @@ def peek():  # Clarify
     print(stack.peek())
 
 
-def length(): # Measure
+def length():  # Measure
     print(stack.size())
 
 
-def multiply(): # Cure
+def multiply():  # Cure
     assert not stack.isempty(), "Cannot cure the stack... Stack is empty!"
     val1 = float(stack.pop())
     val2 = float(stack.pop())
@@ -82,7 +83,6 @@ def getRemainder():  # Dissolve
 
 # Check if the token is in the dictionary.
 def check_dictionary(argument):
-
     dictionary = {
         'mix': add,
         'skim': subtract,
@@ -145,7 +145,6 @@ def get_input():
 
 
 def parser(tokens):
-
     number = re.compile(r'[0-9]+(\.[0-9][0-9]?)?')
     string = re.compile(r'^[a-zA-Z]*$')
     variable = re.compile(r'^\$[A-Za-z0-9._]+$')
@@ -161,7 +160,3 @@ def parser(tokens):
             if value:
                 raise RuntimeError("Invalid Token " + token)
     return
-
-
-
-
