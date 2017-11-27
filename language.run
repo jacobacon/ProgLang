@@ -3,7 +3,7 @@
 This is an example of a comment. Comments start with two percent signs and end with two percent signs.
 
 
-Cookpy is a loosely cooking based esolang developed in Python, and is pronounced like 'Cookie'
+Cookpy is a loosely cooking themed esolang developed in Python, and is pronounced like 'Cookie'
 
 Cookpy is useful for chaining math functions in an interesting way, with variable support.
 
@@ -104,7 +104,7 @@ At the moment only numerical operations are supported, but order can take in and
 Boolean, and loops are not supported at the moment.
 
 
-The program below is an example of various functions, and has little real world application.
+The program below is an example of some of the various functions, and has little real world application.
 
 Start of actual code:
 %%
