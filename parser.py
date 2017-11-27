@@ -6,12 +6,18 @@ stack = Stack()
 variables = Variables()
 
 
+# Debugging methods
+
+
 def add_to_stack(value):
     stack.push(value)
 
 
 def return_stack():
     return stack.stack
+
+
+# End Debugging methods
 
 
 def add():  # Mix
@@ -51,6 +57,11 @@ def peek():  # Clarify
 
 def length():  # Measure
     print(stack.size())
+
+
+def delete():  # Grind
+    stack.pop()
+    return
 
 
 def multiply():  # Cure
@@ -98,6 +109,7 @@ def check_dictionary(argument):
         'shop': get_var,
         'trash': delete_var,
         'order': get_input,
+        'grind': delete
 
     }
     # Get the function from dictionary
@@ -113,10 +125,6 @@ def store_var():  # Pack the variable
 
     variables.set_var(name, value)
 
-    return
-
-
-def repeat():
     return
 
 
@@ -137,14 +145,14 @@ def delete_var():  # trash the variable
     return
 
 
-def get_input():
+def get_input():  # read input from console to stack
     user_input = raw_input('Input: ')
 
     stack.push(user_input.strip())
     return
 
 
-def parser(tokens):
+def parser(tokens):  # parse each word if it is a number, string, or variable
     number = re.compile(r'[0-9]+(\.[0-9][0-9]?)?')
     string = re.compile(r'^[a-zA-Z]*$')
     variable = re.compile(r'^\$[A-Za-z0-9._]+$')

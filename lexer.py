@@ -28,11 +28,14 @@ class Lexer:
         comment = False
         validtokens = []
 
+        # Check each word if it matches regex
+
         for word in words:
 
             for regex in self.patterns:
                 pattern, tag = regex
 
+                # Skip comments. Add numbers, variables, and valid tokens to the return list.
                 match = pattern.match(word)
                 if match:
                     if (tag == self.SKIP) and (comment == False):
