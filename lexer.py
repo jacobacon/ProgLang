@@ -21,7 +21,7 @@ class Lexer:
         return
 
     def languagelexer(self, inputfile):
-        """Reads the file and returns valid words, and filters out invalid words and comments"""
+        # Reads the file and returns valid words, and filters out invalid words and comments
         words = inputfile.split()  # Split the source code into an array of words
 
         # If the '%%' word is found, a comment follows until another '%%' is found.

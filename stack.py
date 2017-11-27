@@ -1,4 +1,6 @@
 class Stack:
+    # A simple implemntation of a stack in python.
+
     def __init__(self):
         self.stack = []
         return

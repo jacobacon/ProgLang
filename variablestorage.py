@@ -1,4 +1,6 @@
 class Variables:
+
+    # A dictionary for storage of variables for Cookpy programming language
     def __init__(self):
         self.variables = {}
         return
