@@ -1,0 +1,46 @@
+%% a demo program to showcase the features of Cookpy %%
+
+%% Set var1 to 2, and var2 to 3 %%
+$var1 2 pack
+$var2 3 pack
+
+%% Store $var1 + $var2 in $sum %%
+$sum $var1 shop $var2 shop mix pack
+
+%% Output the Sum %%
+$sum shop serve
+
+%% Sum times sum stored in sum. Reassign variables %%
+$sum $sum shop $sum shop cure pack
+
+
+%% Output the value of sum %%
+$sum shop serve
+
+
+%% Example of a counter %%
+$counter 0 pack
+$counter $counter shop 1 mix pack
+$counter $counter shop 1 mix pack
+$counter $counter shop 1 mix pack
+$counter $counter shop 1 mix pack
+$counter shop serve
+
+%% Output the value of var1 %%
+$var1 shop serve
+measure
+
+%% Input the new variable %%
+$var1 order pack
+
+%% Show the length of the stack. Will be 0 %%
+measure
+
+%% Add var1 to the stack %%
+$var1 shop
+
+%% New length of the stack After getting from the stack %%
+measure
+
+%% remainder of $var1 and 10 %%
+10 cure serve
